@@ -18,7 +18,6 @@ class AdminAuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-//echo "<pre>";print_r($request);exit;
         if(auth()->guard('admin')->attempt(['email' => $request->input('email'),  'password' => $request->input('password')])){
             $user = auth()->guard('admin')->user();
             if($user->is_admin == 1){
